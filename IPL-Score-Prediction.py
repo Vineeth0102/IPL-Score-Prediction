@@ -18,10 +18,10 @@ remove_list = ['mid','venue','batsman','bowler','striker','non-striker']
 print("Before removing unwanted columns {}".format(test.shape))
 test.drop(remove_list,axis = 1,inplace = True)
 print("After removing unwanted columns {}".format(test.shape))
-test
 
-test['bat_team'].unique()
-test['bowl_team'].unique()
+
+print(test['bat_team'].unique())
+print(test['bowl_team'].unique())
 
 consistent_teams = ['Royal Challengers Bangalore', 'Kings XI Punjab',
        'Delhi Daredevils', 'Kolkata Knight Riders', 'Rajasthan Royals',
@@ -32,7 +32,6 @@ df = test[(test['bat_team'].isin(consistent_teams)) & (test['bowl_team'].isin(co
 print(df)
 
 df = df[df['overs']>=5]
-df
 
 from datetime import datetime
 import pandas as pd
@@ -42,9 +41,9 @@ df.info()
 
 import pandas as pd
 encoded_df = pd.get_dummies(data = df, columns =['bat_team','bowl_team'])
-encoded_df
+print(encoded_df)
 
-encoded_df.columns
+print(encoded_df.columns)
 
 encoded_df = encoded_df[['date', 'bat_team_Chennai Super Kings', 'bat_team_Delhi Daredevils',
        'bat_team_Kings XI Punjab', 'bat_team_Kolkata Knight Riders',
@@ -56,7 +55,7 @@ encoded_df = encoded_df[['date', 'bat_team_Chennai Super Kings', 'bat_team_Delhi
        'bowl_team_Royal Challengers Bangalore',
        'bowl_team_Sunrisers Hyderabad','overs', 'runs', 'wickets', 'runs_last_5', 'wickets_last_5',
        'total']]
-encoded_df
+print(encoded_df)
 
 import pandas as pd
 x_train = encoded_df.drop(labels = 'total',axis = 1 )[encoded_df['date'].dt.year <= 2016]
