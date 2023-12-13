@@ -191,7 +191,8 @@ print("The final predicted score (range): {}-{}".format(final_score - 10, final_
 final_score = predict_score( batting_team = 'Mumbai Indians', bowling_team = 'Chennai Super Kings',overs = 17, runs = 28, wickets = 5, runs_last_5 = 23, wickets_last_5 = 0 )
 print("The final predicted score (range): {}-{}".format(final_score - 10, final_score + 10))
 
-!pip install pickle
 import pickle
+with open('ipl-score-predictor.pkl', 'wb') as file:
+    pickle.dump(linear_regressor, file)
 
 
