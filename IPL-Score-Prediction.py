@@ -11,10 +11,6 @@ import numpy as np
 import pandas as pd
 
 test = pd.read_csv(r"/content/ipl.csv")  #Enter the path of the csv file
-test.head(10)
-test.shape
-test.describe()
-test.info()
 
 print(test['mid'].unique())
 
